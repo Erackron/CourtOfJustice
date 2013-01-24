@@ -1,0 +1,23 @@
+name: CourtOfJustice
+main: com.mcdr.courtofjustice.CourtOfJustice
+version: 0.1a
+authors: [Erackron, Pyriphlegethon]
+softdepend: [Vault]
+commands:
+  courtofjustice:
+    aliases: coj
+    description: CourtOfJustice base command
+    permission: courtofjustice
+    usage: Type /courtofjustice help for more information
+permissions:
+  courtofjustice.*:
+    description: Give access to all /lab permissions.
+    children:
+      courtofjustice.help: true
+    default: op
+  courtofjustice:
+    description: CourtOfJustice base command
+    default: true
+  courtofjustice.help:
+    description: Display command uses.
+    default: true

@@ -1,5 +1,6 @@
 package com.mcdr.courtofjustice;
 
+import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
@@ -29,6 +30,8 @@ public class CourtOfJustice extends JavaPlugin {
 	public void onEnable(){
 		setupEconomyManager();
 		setupPermissionsManager();
+		getCommand("courtofjustice").setExecutor(new CommandHandler());
+		setupMetrics();
 		l.info("["+getName()+"] Version "+pdf.getVersion()+" Enabled");
 	}
 	
@@ -69,6 +72,19 @@ public class CourtOfJustice extends JavaPlugin {
 	 */
 	public PermissionsManager getPermissionsManager() {
 		return this.pm;
+	}
+	
+	private void setupMetrics(){
+		try{
+			CoJMetrics metrics = new CoJMetrics(this);
+			
+			if(metrics.start())
+		    	l.info("["+getName()+"] Sending metrics data");
+		    else
+		    	l.info("["+getName()+"] Disabled sending metrics data");
+		} catch (IOException e) {
+			l.warning("["+getName()+"] Failed to contact mcstats.org");
+		}
 	}
 	
 }
