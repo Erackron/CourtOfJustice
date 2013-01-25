@@ -7,17 +7,18 @@ commands:
   courtofjustice:
     aliases: coj
     description: CourtOfJustice base command
-    permission: courtofjustice
-    usage: Type /courtofjustice help for more information
+    permission: coj.help
+    usage: Type /coj help for more information
 permissions:
-  courtofjustice.*:
-    description: Give access to all /lab permissions.
+  coj.*:
+    description: Give access to all CoJ permissions.
     children:
-      courtofjustice.help: true
+      coj.help: true
+      coj.update: true
     default: op
-  courtofjustice:
-    description: CourtOfJustice base command
-    default: true
-  courtofjustice.help:
+  coj.help:
     description: Display command uses.
     default: true
+  coj.update:
+    description: Update CoJ to the latest version and check for updates.
+    default: false

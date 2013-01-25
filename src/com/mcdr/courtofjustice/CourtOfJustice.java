@@ -8,6 +8,8 @@ import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
+import com.mcdr.courtofjustice.command.CommandHandler;
+import com.mcdr.courtofjustice.utils.CoJMetrics;
 import com.timvisee.manager.permissionsmanager.PermissionsManager;
 import com.timvisee.manager.economymanager.EconomyManager;
 
