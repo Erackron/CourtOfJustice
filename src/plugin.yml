@@ -15,6 +15,9 @@ permissions:
     children:
       coj.help: true
       coj.update: true
+      coj.judge: true
+      coj.jury: true
+      coj.spectate: true
     default: op
   coj.help:
     description: Display command uses.
@@ -22,3 +25,12 @@ permissions:
   coj.update:
     description: Update CoJ to the latest version and check for updates.
     default: false
+  coj.judge:
+  	description: Be a judge in a court case.
+  	default: false
+  coj.jury:
+  	description: Be eligible for jury duty.
+  	default: true
+  coj.spectate:
+  	description: Watch a court case in action.
+  	default: true
