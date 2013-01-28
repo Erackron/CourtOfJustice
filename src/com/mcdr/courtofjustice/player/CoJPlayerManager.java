@@ -12,7 +12,7 @@ public class CoJPlayerManager {
 	private static Map<String, CoJPlayer> offlineCojPlayers = new HashMap<String, CoJPlayer>();
 	
 	public static void AddOnlinePlayers() {
-		Player[] players = CourtOfJustice.in.getServer().getOnlinePlayers();
+		Player[] players = CourtOfJustice.server.getOnlinePlayers();
 		
 		for (Player player : players)
 			AddCoJPlayer(player);

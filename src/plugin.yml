@@ -8,7 +8,7 @@ commands:
     aliases: coj
     description: CourtOfJustice base command
     permission: coj.help
-    usage: Type /coj help for more information
+    usage: Type /<command> help for more information
 permissions:
   coj.*:
     description: Give access to all CoJ permissions.

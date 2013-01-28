@@ -10,6 +10,7 @@ public abstract class BaseCommand {
 	protected static boolean processed;
 	protected static CommandSender sender;
 	protected static String[] args;
+	protected static String lbl;
 	
 	protected static boolean CheckPermission(String permission, boolean consoleUsage) {
 		processed = true;

@@ -10,6 +10,7 @@ public class CommandHandler implements CommandExecutor{
 		BaseCommand.processed = false;
 		BaseCommand.sender = sender;
 		BaseCommand.args = args;
+		BaseCommand.lbl = lbl;
 		
 		String firstArg = args.length > 0?args[0].toLowerCase():"help";
 		
