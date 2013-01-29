@@ -2,6 +2,7 @@ package com.mcdr.courtofjustice.player;
 
 public class CoJPlayerData {
 	private boolean isJudge = false;
+	private boolean isProsecutor = false;
 	private boolean isSuspect = false;
 	private boolean isJuryCandidate = false;
 	private boolean isJuryMember = false;
@@ -10,6 +11,10 @@ public class CoJPlayerData {
 	
 	public boolean isJudge() {
 		return isJudge;
+	}
+	
+	public boolean isProsecutor(){
+		return isProsecutor;
 	}
 
 	public boolean isSuspect() {
@@ -45,6 +50,14 @@ public class CoJPlayerData {
 	 */
 	public void setJudge(boolean isJudge) {
 		this.isJudge = isJudge;
+	}
+	
+	/**
+	 * Dont use this method directly, instead use the setProsecutor method in the CoJPlayer class
+	 * @param isProsecutor whether the player is a public prosecutor or not
+	 */
+	public void setProsecutor(boolean isProsecutor) {
+		this.isProsecutor = isProsecutor;
 	}
 	
 	/**
@@ -87,6 +100,7 @@ public class CoJPlayerData {
 		this.isInvolved = isInvolved;
 		if(!isInvolved){
 			this.isJudge = false;
+			this.isProsecutor = false;
 			this.isJuryCandidate = false;
 			this.isJuryMember = false;
 			this.isSpectator = false;

@@ -16,6 +16,7 @@ permissions:
       coj.help: true
       coj.update: true
       coj.judge: true
+      coj.prosecute: true
       coj.jury: true
       coj.spectate: true
     default: op
@@ -27,6 +28,9 @@ permissions:
     default: false
   coj.judge:
   	description: Be a judge in a court case.
+  	default: false
+  coj.prosecute:
+  	description: Be the public prosecutor in a court case.
   	default: false
   coj.jury:
   	description: Be eligible for jury duty.

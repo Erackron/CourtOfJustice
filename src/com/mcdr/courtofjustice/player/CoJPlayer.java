@@ -50,6 +50,22 @@ public class CoJPlayer {
 		return true;
 	}
 	
+	public boolean setProsecutor(boolean isProsecutor){
+		if(isProsecutor){
+			if(player.getPlayer()!=null && Utility.hasPermission(player.getPlayer(), "coj.prosecute") && !playerData.isInvolved()){
+				playerData.setInvolvement(true);
+				playerData.setProsecutor(true);
+			} else
+				return false;
+		} else {
+			if(playerData.isProsecutor())
+				playerData.setInvolvement(false);
+			else
+				return false;
+		}
+		return true;
+	}
+	
 	public boolean setJuryCandidate(boolean isJuryCandidate){
 		if(isJuryCandidate){
 			if(player.getPlayer()!=null && Utility.hasPermission(player.getPlayer(), "coj.jury") && !playerData.isInvolved()){
