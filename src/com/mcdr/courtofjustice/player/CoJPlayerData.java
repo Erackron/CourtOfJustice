@@ -7,6 +7,7 @@ public class CoJPlayerData {
 	private boolean isJuryCandidate = false;
 	private boolean isJuryMember = false;
 	private boolean isSpectator = false;
+	private boolean isSolicitor = false;
 	private boolean isInvolved = false;
 	
 	public boolean isJudge() {
@@ -31,6 +32,10 @@ public class CoJPlayerData {
 	
 	public boolean isSpectator() {
 		return isSpectator;
+	}
+	
+	public boolean isSolicitor() {
+		return isSolicitor;
 	}
 	
 	public boolean isInvolved(){
@@ -93,7 +98,15 @@ public class CoJPlayerData {
 	}
 	
 	/**
-	 * Dont use this method directly, instead use any of the methods in the CojPlayer class that have to do with involvement
+	 * Dont use this method directly, instead use the setSpectator method in the CoJPlayer class
+	 * @param isSolicitor whether the player is a solicitor or not
+	 */
+	public void setSolicitor(boolean isSolicitor){
+		this.isSolicitor = isSolicitor;
+	}
+	
+	/**
+	 * Dont use this method directly, instead use any of the methods in the CoJPlayer class that have to do with involvement
 	 * @param isInvolved whether the player is involved in a court case or not
 	 */
 	public void setInvolvement(boolean isInvolved) {

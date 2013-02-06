@@ -5,6 +5,7 @@ import java.util.Map;
 
 public enum CourtState {
 	INACTIVE("Inactive"),
+	DETENTION_ON_REMAND("DetentionOnRemand"),
 	JURY_SELECTION("JurySelection"),
 	IN_SESSION("InSession"),
 	JUDGEMENT("Judgement");

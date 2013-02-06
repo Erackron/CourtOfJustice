@@ -135,4 +135,20 @@ public class CoJPlayer {
 		}
 		return true;
 	}
+	
+	public boolean setSolicitor(boolean isSolicitor){
+		if(isSolicitor){
+			if(player.getPlayer()!=null && Utility.hasPermission(player.getPlayer(), "coj.solicit") && !playerData.isInvolved()){
+				playerData.setInvolvement(true);
+				playerData.setSolicitor(true);
+				} else
+					return false;
+			} else {
+				if(playerData.isSolicitor())
+					playerData.setInvolvement(false);
+				else
+					return false;
+		}
+		return true;
+	}
 }

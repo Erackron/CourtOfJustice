@@ -19,6 +19,7 @@ permissions:
       coj.prosecute: true
       coj.jury: true
       coj.spectate: true
+      coj.solicit: true
     default: op
   coj.help:
     description: Display command uses.
@@ -38,3 +39,6 @@ permissions:
   coj.spectate:
   	description: Watch a court case in action.
   	default: true
+  coj.solicit:
+    description: Be a solicitor for a suspect
+    default: true

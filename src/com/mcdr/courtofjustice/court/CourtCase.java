@@ -9,12 +9,15 @@ public class CourtCase {
 	private CoJPlayer judge = null;
 	private CoJPlayer accused = null;
 	private CoJPlayer prosecutor = null;
+	private CoJPlayer solicitor = null;
 	private List<CoJPlayer> jury = new ArrayList<CoJPlayer>();
 	private List<CoJPlayer> juryCandidates = new ArrayList<CoJPlayer>();
 	private List<CoJPlayer> spectators = new ArrayList<CoJPlayer>();
 	
-	public CourtCase(CoJPlayer judge, CoJPlayer accused, CoJPlayer prosecutor, List<CoJPlayer> juryCandidates, List<CoJPlayer> spectators){
-		//TODO Finish the constructor, method comments, and the actual court 'logic'
+	public CourtCase(CoJPlayer judge, CoJPlayer accused){
+		this.judge = judge;
+		this.accused = accused;
+		//use this constructor only when you set the court to the detention on remand state
 	}
 	
 	/**
@@ -58,6 +61,20 @@ public class CourtCase {
 	public void setProsecutor(CoJPlayer prosecutor) {
 		this.prosecutor = prosecutor;
 	}
+	
+	/**
+	 * @return the solicitor
+	 */
+	public CoJPlayer getSolicitor() {
+		return solicitor;
+	}
+	
+	/** 
+	 * @param solicitor the solicitor to set
+	 */
+	public void setSolicitor(CoJPlayer solicitor) {
+		this.solicitor = solicitor;
+	}
 
 	/**
 	 * @return the jury
@@ -71,6 +88,13 @@ public class CourtCase {
 	 */
 	public void setJury(List<CoJPlayer> jury) {
 		this.jury = jury;
+	}
+	
+	/**
+	 * @param juryMember the jurymember to add
+	 */
+	public void addJuryMember(CoJPlayer juryMember){
+		jury.add(juryMember);
 	}
 
 	/**
@@ -86,6 +110,13 @@ public class CourtCase {
 	public void setJuryCandidates(List<CoJPlayer> juryCandidates) {
 		this.juryCandidates = juryCandidates;
 	}
+	
+	/** 
+	 * @param juryCandidate the jurycandidate to add
+	 */
+	public void addJuryCandidate(CoJPlayer juryCandidate){
+		juryCandidates.add(juryCandidate);
+	}
 
 	/**
 	 * @return the spectators
@@ -99,5 +130,12 @@ public class CourtCase {
 	 */
 	public void setSpectators(List<CoJPlayer> spectators) {
 		this.spectators = spectators;
+	}
+	
+	/**
+	 * @param spectator the spectator to add
+	 */
+	public void addSpectator(CoJPlayer spectator){
+		spectators.add(spectator);
 	}
 }
