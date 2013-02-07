@@ -15,8 +15,10 @@ public class CommandHandler implements CommandExecutor{
 		String firstArg = args.length > 0?args[0].toLowerCase():"help";
 		
 		if(firstArg.equalsIgnoreCase("help"))
-			HelpCommand.Process();
+			HelpCommand.process();
 		
+		if(firstArg.equalsIgnoreCase("arrest"))
+			ArrestCommand.process();
 		
 		return BaseCommand.processed;
 	}

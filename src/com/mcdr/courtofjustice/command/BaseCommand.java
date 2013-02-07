@@ -12,7 +12,7 @@ public abstract class BaseCommand {
 	protected static String[] args;
 	protected static String lbl;
 	
-	protected static boolean CheckPermission(String permission, boolean consoleUsage) {
+	protected static boolean checkPermission(String permission, boolean consoleUsage) {
 		processed = true;
 		
 		if (!consoleUsage && !(sender instanceof Player)) {

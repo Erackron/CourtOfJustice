@@ -8,8 +8,8 @@ import com.mcdr.courtofjustice.utils.CoJAutoUpdater;
 import com.mcdr.courtofjustice.utils.CoJUpdateChecker;
 
 public class UpdateCommand extends BaseCommand {
-	public static void Process(){
-		if (!CheckPermission("coj.update", true))
+	public static void process(){
+		if (!checkPermission("coj.update", true))
 			return;
 		
 		if(args.length < 2){
