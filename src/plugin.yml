@@ -1,6 +1,6 @@
 name: CourtOfJustice
 main: com.mcdr.courtofjustice.CourtOfJustice
-version: 0.1a
+version: 0.1
 authors: [Erackron, Pyriphlegethon]
 softdepend: [Vault]
 commands:
@@ -28,17 +28,17 @@ permissions:
     description: Update CoJ to the latest version and check for updates.
     default: false
   coj.judge:
-  	description: Be a judge in a court case.
-  	default: false
+    description: Be a judge in a court case.
+    default: false
   coj.prosecute:
-  	description: Be the public prosecutor in a court case.
-  	default: false
+    description: Be the public prosecutor in a court case.
+    default: false
   coj.jury:
-  	description: Be eligible for jury duty.
-  	default: true
+    description: Be eligible for jury duty.
+    default: true
   coj.spectate:
-  	description: Watch a court case in action.
-  	default: true
+    description: Watch a court case in action.
+    default: true
   coj.solicit:
     description: Be a solicitor for a suspect
     default: true

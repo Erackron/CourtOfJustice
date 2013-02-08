@@ -11,14 +11,14 @@ public class CoJPlayerManager {
 	private static Map<String, CoJPlayer> cojPlayers = new HashMap<String, CoJPlayer>();
 	private static Map<String, CoJPlayer> offlineCojPlayers = new HashMap<String, CoJPlayer>();
 	
-	public static void AddOnlinePlayers() {
-		Player[] players = CourtOfJustice.server.getOnlinePlayers();
+	public static void addOnlinePlayers() {
+		Player[] players = CourtOfJustice.in.getServer().getOnlinePlayers();
 		
 		for (Player player : players)
-			AddCoJPlayer(player);
+			addCoJPlayer(player);
 	}
 	
-	public static CoJPlayer AddCoJPlayer(Player player) {
+	public static CoJPlayer addCoJPlayer(Player player) {
 		String playerName = player.getName().toLowerCase();
 		if(offlineCojPlayers.containsKey(playerName))
 			cojPlayers.put(playerName, offlineCojPlayers.remove(playerName));
@@ -31,7 +31,7 @@ public class CoJPlayerManager {
 		return cojPlayer;
 	}
 
-	public static void RemoveCoJPlayer(Player player) {
+	public static void removeCoJPlayer(Player player) {
 		String playerName = player.getName().toLowerCase();
 		if(cojPlayers.containsKey(playerName))
 			offlineCojPlayers.put(playerName, cojPlayers.remove(playerName));

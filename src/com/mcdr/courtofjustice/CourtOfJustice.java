@@ -4,8 +4,6 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Server;
-import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
@@ -18,8 +16,6 @@ public class CourtOfJustice extends JavaPlugin {
 	public static CourtOfJustice in;
 	public static Logger l;
 	public static BukkitScheduler scheduler;
-	public static Server server;
-	public static PluginDescriptionFile pdf;
 	public PermissionsManager pm;
 	public EconomyManager em;
 	
@@ -27,17 +23,15 @@ public class CourtOfJustice extends JavaPlugin {
 		in = this;
 		l = Bukkit.getLogger();
 		scheduler = Bukkit.getScheduler();
-		pdf = getDescription();
-		server = getServer();
 	}
 	
 	@Override
 	public void onEnable(){
-		setupEconomyManager();
+		setupEconomyManager(); 
 		setupPermissionsManager();
 		getCommand("courtofjustice").setExecutor(new CommandHandler());
 		setupMetrics();
-		l.info("["+getName()+"] Version "+pdf.getVersion()+" Enabled");
+		l.info("["+getName()+"] Version "+ getDescription().getVersion()+" Enabled");
 	}
 	
 	@Override

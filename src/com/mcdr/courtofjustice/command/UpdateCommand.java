@@ -30,13 +30,13 @@ public class UpdateCommand extends BaseCommand {
 			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "New version available, version " + ChatColor.GRAY +lastVer);
 			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "To update, use " + ChatColor.GREEN + "/lab update install");
 		} else {
-			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "No update needed, running the latest version (" + ChatColor.GRAY + CourtOfJustice.pdf.getVersion() + ChatColor.WHITE + ")");
+			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "No update needed, running the latest version (" + ChatColor.GRAY + CourtOfJustice.in.getDescription().getVersion() + ChatColor.WHITE + ")");
 		}
 	}
 	
 	private static void installCommand(){
 		if(!CoJUpdateChecker.updateNeeded()){
-			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "No update needed, running the latest version (" + ChatColor.GRAY + CourtOfJustice.pdf.getVersion() + ChatColor.WHITE + ")");
+			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "No update needed, running the latest version (" + ChatColor.GRAY + CourtOfJustice.in.getDescription().getVersion() + ChatColor.WHITE + ")");
 			return;
 		}
 		//If something went wrong, return. Errors will be handled in the CoJUpdateChecker class

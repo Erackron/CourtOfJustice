@@ -21,7 +21,7 @@ public class CoJUpdateChecker {
 	
 	public static boolean updateNeeded() {
 		if(timeStamp==-1 || System.currentTimeMillis()-timeStamp>1000*60*30){
-			String curVer = CourtOfJustice.pdf.getVersion();
+			String curVer = CourtOfJustice.in.getDescription().getVersion();
 			String lastVersion = getLastVersion();
 			if(lastVersion==null){
 				CourtOfJustice.l.info("["+CourtOfJustice.in.getName()+"] Failed to reach dev.bukkit.org to check for updates. Is it down?");
@@ -56,6 +56,6 @@ public class CoJUpdateChecker {
 		} catch(SocketTimeoutException e){
 			return null;
 		} catch (Exception e) {}
-		return CourtOfJustice.pdf.getVersion();
+		return CourtOfJustice.in.getDescription().getVersion();
 	}
 }

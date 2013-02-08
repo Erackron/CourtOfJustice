@@ -17,16 +17,16 @@ public class CoJPlayerListener implements Listener {
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onPlayerJoin(PlayerJoinEvent event) {
 		Player player = event.getPlayer();
-		if(CoJUpdateChecker.updateNeeded() && Utility.hasPermission(player, "lab.update")){
+		if(CoJUpdateChecker.updateNeeded() && Utility.hasPermission(player, "coj.update")){
 			player.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + " New version available, version " + CoJUpdateChecker.lastVer);
 			player.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + " To update, use " + ChatColor.GREEN + "/coj update install");
 		}
-		CoJPlayerManager.AddCoJPlayer(player);
+		CoJPlayerManager.addCoJPlayer(player);
 	}
 	
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onPlayerQuit(PlayerQuitEvent event) {
-		CoJPlayerManager.RemoveCoJPlayer(event.getPlayer());
+		CoJPlayerManager.removeCoJPlayer(event.getPlayer());
 	}
 	
 	@EventHandler(priority = EventPriority.LOWEST)
