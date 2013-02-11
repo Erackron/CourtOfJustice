@@ -16,6 +16,7 @@ public class CourtOfJustice extends JavaPlugin {
 	public static CourtOfJustice in;
 	public static Logger l;
 	public static BukkitScheduler scheduler;
+	public static String shortName;
 	public PermissionsManager pm;
 	public EconomyManager em;
 	
@@ -23,6 +24,7 @@ public class CourtOfJustice extends JavaPlugin {
 		in = this;
 		l = Bukkit.getLogger();
 		scheduler = Bukkit.getScheduler();
+		shortName = "CoJ";
 	}
 	
 	@Override

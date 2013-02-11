@@ -13,7 +13,7 @@ public class UpdateCommand extends BaseCommand {
 			return;
 		
 		if(args.length < 2){
-			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.GRAY + "Usage: " + ChatColor.WHITE + "/coj update <check/install>.");
+			sender.sendMessage(ChatColor.BLUE + "["+CourtOfJustice.shortName+"] " + ChatColor.GRAY + "Usage: " + ChatColor.WHITE + "/coj update <check/install>.");
 			return;
 		}
 		String arg = args[1].toLowerCase();
@@ -27,16 +27,16 @@ public class UpdateCommand extends BaseCommand {
 	private static void checkCommand(){
 		if(CoJUpdateChecker.updateNeeded()){
 			String lastVer = CoJUpdateChecker.getLastVersion();
-			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "New version available, version " + ChatColor.GRAY +lastVer);
-			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "To update, use " + ChatColor.GREEN + "/lab update install");
+			sender.sendMessage(ChatColor.BLUE + "["+CourtOfJustice.shortName+"] " + ChatColor.WHITE + "New version available, version " + ChatColor.GRAY +lastVer);
+			sender.sendMessage(ChatColor.BLUE + "["+CourtOfJustice.shortName+"] " + ChatColor.WHITE + "To update, use " + ChatColor.GREEN + "/lab update install");
 		} else {
-			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "No update needed, running the latest version (" + ChatColor.GRAY + CourtOfJustice.in.getDescription().getVersion() + ChatColor.WHITE + ")");
+			sender.sendMessage(ChatColor.BLUE + "["+CourtOfJustice.shortName+"] " + ChatColor.WHITE + "No update needed, running the latest version (" + ChatColor.GRAY + CourtOfJustice.in.getDescription().getVersion() + ChatColor.WHITE + ")");
 		}
 	}
 	
 	private static void installCommand(){
 		if(!CoJUpdateChecker.updateNeeded()){
-			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "No update needed, running the latest version (" + ChatColor.GRAY + CourtOfJustice.in.getDescription().getVersion() + ChatColor.WHITE + ")");
+			sender.sendMessage(ChatColor.BLUE + "["+CourtOfJustice.shortName+"] " + ChatColor.WHITE + "No update needed, running the latest version (" + ChatColor.GRAY + CourtOfJustice.in.getDescription().getVersion() + ChatColor.WHITE + ")");
 			return;
 		}
 		//If something went wrong, return. Errors will be handled in the CoJUpdateChecker class
@@ -51,11 +51,11 @@ public class UpdateCommand extends BaseCommand {
 			return;
 		
 		if(CoJAutoUpdater.update())
-			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "Updated successfully.");
+			sender.sendMessage(ChatColor.BLUE + "["+CourtOfJustice.shortName+"] " + ChatColor.WHITE + "Updated successfully.");
 		else {
-			sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "Update failed.");
+			sender.sendMessage(ChatColor.BLUE + "["+CourtOfJustice.shortName+"] " + ChatColor.WHITE + "Update failed.");
 			if(sender instanceof Player)
-				sender.sendMessage(ChatColor.BLUE + "[CoJ] " + ChatColor.WHITE + "Check the console/logs for more information.");
+				sender.sendMessage(ChatColor.BLUE + "["+CourtOfJustice.shortName+"] " + ChatColor.WHITE + "Check the console/logs for more information.");
 		}
 	}
 }
