@@ -1,49 +1,75 @@
 package com.mcdr.courtofjustice.player;
 
+import org.bukkit.entity.Player;
+
+import com.mcdr.courtofjustice.utils.Utility;
+
 public class CoJPlayerData {
-	private boolean isJudge = false;
-	private boolean isProsecutor = false;
-	private boolean isSuspect = false;
-	private boolean isJuryCandidate = false;
-	private boolean isJuryMember = false;
-	private boolean isSpectator = false;
-	private boolean isSolicitor = false;
-	private boolean isInvolved = false;
+	public static enum PlayerInvolvement {
+		JUDGE("coj.judge"),
+		PROSECUTOR("coj.prosecute"),
+		SUSPECT,
+		JURYCANDIDATE("coj.jury"),
+		JURYMEMBER("coj.jury"),
+		SPECTATOR("coj.spectate"),
+		SOLICITOR("coj.solicitor"),
+		NONE;
+		
+		private final String PERM_NODE;
+		
+		PlayerInvolvement(){
+			this.PERM_NODE = null;
+		}
+		
+		PlayerInvolvement(String permissionNode){
+			this.PERM_NODE = permissionNode;
+		}
+
+		public String getPermissionNode() {
+			return PERM_NODE;
+		}
+		
+		public boolean hasPermission(Player player){
+			return (PERM_NODE==null)?true:Utility.hasPermission(player, PERM_NODE);
+		}
+	}
+	
+	private PlayerInvolvement playerInvolvement = PlayerInvolvement.NONE;
 	
 	public boolean isJudge() {
-		return isJudge;
+		return playerInvolvement==PlayerInvolvement.JUDGE;
 	}
 	
 	public boolean isProsecutor(){
-		return isProsecutor;
+		return playerInvolvement==PlayerInvolvement.PROSECUTOR;
 	}
 
 	public boolean isSuspect() {
-		return isSuspect;
+		return playerInvolvement==PlayerInvolvement.SUSPECT;
 	}
 
 	public boolean isJuryCandidate() {
-		return isJuryCandidate;
+		return playerInvolvement==PlayerInvolvement.JURYCANDIDATE;
 	}
 	
 	public boolean isJuryMember() {
-		return isJuryMember;
+		return playerInvolvement==PlayerInvolvement.JURYMEMBER;
 	}
 	
 	public boolean isSpectator() {
-		return isSpectator;
+		return playerInvolvement==PlayerInvolvement.SPECTATOR;
 	}
 	
 	public boolean isSolicitor() {
-		return isSolicitor;
+		return playerInvolvement==PlayerInvolvement.SOLICITOR;
 	}
 	
 	public boolean isInvolved(){
-		return isInvolved;
+		return playerInvolvement==PlayerInvolvement.NONE;
 	}
 	
 	/******************************************************************\
-	 * The methods below shouldn't be called directly,                *
+	 * The method below shouldn't be called directly,                *
 	 * instead call the methods in the CoJPlayer class,               *
 	 * they include checks to see if an assignment is actually valid  *
 	 * and also give output accordingly.                              *
@@ -53,71 +79,7 @@ public class CoJPlayerData {
 	 * Dont use this method directly, instead use the setJudge method in the CoJPlayer class
 	 * @param isJudge whether the player is a judge or not
 	 */
-	public void setJudge(boolean isJudge) {
-		this.isJudge = isJudge;
-	}
-	
-	/**
-	 * Dont use this method directly, instead use the setProsecutor method in the CoJPlayer class
-	 * @param isProsecutor whether the player is a public prosecutor or not
-	 */
-	public void setProsecutor(boolean isProsecutor) {
-		this.isProsecutor = isProsecutor;
-	}
-	
-	/**
-	 * Dont use this method directly, instead use the setSuspect method in the CoJPlayer class
-	 * @param isSuspect whether the player is a suspect or not
-	 */
-	public void setSuspect(boolean isSuspect) {
-		this.isSuspect = isSuspect;
-	}
-
-	/**
-	 * Dont use this method directly, instead use the setJuryCandidate method in the CoJPlayer class
-	 * @param isJuryCandidate whether the player is a jury candidate or not
-	 */
-	public void setJuryCandidate(boolean isJuryCandidate) {
-		this.isJuryCandidate = isJuryCandidate;
-	}
-
-	/**
-	 * Dont use this method directly, instead use the setJuryMember method in the CoJPlayer class
-	 * @param isJuryMember whether the player is a jury member or not
-	 */
-	public void setJuryMember(boolean isJuryMember) {
-		this.isJuryMember = isJuryMember;
-	}
-	
-	/**
-	 * Dont use this method directly, instead use the setSpectator method in the CoJPlayer class
-	 * @param isSpectator whether the player is a spectator or not
-	 */
-	public void setSpectator(boolean isSpectator) {
-		this.isSpectator = isSpectator;
-	}
-	
-	/**
-	 * Dont use this method directly, instead use the setSpectator method in the CoJPlayer class
-	 * @param isSolicitor whether the player is a solicitor or not
-	 */
-	public void setSolicitor(boolean isSolicitor){
-		this.isSolicitor = isSolicitor;
-	}
-	
-	/**
-	 * Dont use this method directly, instead use any of the methods in the CoJPlayer class that have to do with involvement
-	 * @param isInvolved whether the player is involved in a court case or not
-	 */
-	public void setInvolvement(boolean isInvolved) {
-		this.isInvolved = isInvolved;
-		if(!isInvolved){
-			this.isJudge = false;
-			this.isProsecutor = false;
-			this.isJuryCandidate = false;
-			this.isJuryMember = false;
-			this.isSpectator = false;
-			this.isSuspect = false;
-		}
+	public void setInvolvement(PlayerInvolvement playerInvolvement) {
+		this.playerInvolvement = playerInvolvement;
 	}
 }
